@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!-- Css bootstrap material desing -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Referencia do js bootstrap material desing -->
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
+    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+    <title>Registro de Usuário</title>
+</head>
+<body style="margin-left: 20%; margin-right: 20%; margin-top: 5%;">
+    <%if ( typeof ret == 'boolean' && message.length > 0 ) { %>
+        <h1 class="alert alert-danger"><%= message %></h1>
+        <% } %>
+
+    <form action="/auth/register" method="POST">
+        <div class="form-group">
+            <label for="exampleInputEmail1" class="bmd-label-floating">Nome</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="name">
+            <span class="bmd-help">Informe seu nome completo.</span>
+          </div>  
+        <div class="form-group">
+          <label for="exampleInputEmail1" class="bmd-label-floating">Informe um email válido</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" name="email">
+          <span class="bmd-help">Informe seu email para cadastro.</span>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        </div>  
+        <div class="form-group">
+            <label for="exampleInputPassword1" class="bmd-label-floating">Confirm Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+          </div>  
+        <a href="/"><button  style="width: 130px; float: right; margin-left: 15px;" type="button" class="btn btn-raised btn-warning">Cancelar</button></a> 
+        <button style="width: 130px; float: right;" type="submit" class="btn btn-raised btn-success">Salvar</button>
+      </form>
+      
+</body>
+</html>
