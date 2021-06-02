@@ -1,0 +1,30 @@
+<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div style="background-color: #3f51b5; color: #fff" class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar Empresas</h5>
+          <button style="color: #fff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="/empresas/addempresa" method="POST">
+                <div class="md-form">
+                  <input type="text" id="razao" name="razao" class="form-control" value="<%= empresa.id_empresa %>">
+                  <label for="form1">Razão Social</label>
+                </div>
+                <div class="md-form">
+                  <input type="text" id="cnpj" name="cnpj" class="form-control date">
+                  <label for="form1">CNPJ</label>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-dark-green">Salvar</button>
+                </div>        
+              </form>                    
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>    

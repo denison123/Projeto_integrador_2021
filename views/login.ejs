@@ -1,37 +1,113 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-    <!-- Css bootstrap material desing -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <!-- Referencia do js bootstrap material desing -->
-    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script>
-    <script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
-
-    <title>Login</title>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/public/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/public/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/public/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/public/css/util.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
+<!--===============================================================================================-->
+<link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
 </head>
-<body style="margin-left: 20%; margin-right: 20%; margin-top: 5%;">
-    <%if ( typeof ret == 'boolean' && message.length > 0 ) { %>
-        <h1 class="alert alert-danger"><%= message %></h1>
-        <% } %>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('/public/images/bg-05.jpg');">
+			<div class="wrap-login100">
+				<form class="login100-form validate-form" action="/login" method="POST">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-account-circle"></i>
+					</span>
 
-    <form action="/login" method="POST">
-        <div class="form-group">
-          <label for="exampleInputEmail1" class="bmd-label-floating">E-mail</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" name="email">
-          <span class="bmd-help">Informe seu email para cadastro.</span>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1" class="bmd-label-floating">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-        </div>  
-        <button style="width: 130px; float: right;" type="submit" class="btn btn-raised btn-success">Login</button>
-      </form>
-      
+					<span class="login100-form-title p-b-34 p-t-27">
+						Intranet
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Informe um e-mail válido">
+						<input class="input100" type="text" name="email" placeholder="E-mail">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Insira a senha">
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+                    <%if ( typeof ret == 'boolean' && message.length > 0 ) { %>
+                        <h5 class="alert alert-danger"><%= message %></h5>
+                        <% } %>
+					<div class="contact100-form-checkbox">
+						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+						<label class="label-checkbox100" for="ckb1">
+							Lembrar me
+						</label>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Login
+						</button>
+					</div>
+
+					<div class="text-center p-t-90">
+						<a class="txt1" href="#">
+							&copy 2021 Grupo C&S
+						</a>
+					</div>
+                
+				</form>
+			</div>
+		</div>
+
+
+	<div id="dropDownSelect1"></div>
+	
+ 
+
+
+<!--===============================================================================================-->
+	<script src="/public/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/bootstrap/js/popper.js"></script>
+	<script src="/public/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/daterangepicker/moment.min.js"></script>
+	<script src="/public/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="/public/js/main.js"></script>
+    <script src="sweetalert2/dist/sweetalert2.min.js"></script>
+
 </body>
 </html>
+<script>
+	 $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+</script>

@@ -14,12 +14,17 @@ exports.login = async (req, res)=>{
             })
         }            
             db.query('select * from usuario where email_usuario = ?',[email], async (error, results)=>{
-                if(!results || !(await bcrypt.compare(password, results[0].senha_usuario))){
-                    console.log(results)
+                if(results.length !== 1){
+                    console.log(results.length)
+                    res.status(401).render('login', {
+                        ret:true,
+                        message: 'Usuário não existe na base de dados'
+                    })
+                }else if(!results || !(await bcrypt.compare(password, results[0].senha_usuario))){
                     res.status(401).render('login', {
                         ret:true,
                         message: 'Usuário ou senha incorreto'
-                    })
+                    })                    
                 }else{
                     const id = results[0].id_usuario;
                     const token = jwt.sign({userId: id}, process.env.JWT_SECRET, {

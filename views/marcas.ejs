@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js" integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous"></script> -->
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+
+
+
+<script>
+
+</script>
+
+<script>$(document).ready(function() { $('body').bootstrapMaterialDesign(); });</script>
+
+        <title>Empresas</title>
+</head>
+<body>    
+    <div class="container mt-4">
+        <h4 id="titulo">Marcas  </h4>
+        <button type="button" class="btn btn-indigo btn-sm px-3" data-toggle="modal" data-target="#exampleModal" data-whatever=""><i class="fas fa-plus"></i></button>
+        <%if ( ret == true && message.length > 0 ) { %>
+          <h5 class="alert alert-success"><%= message %></h5>
+          <% } %>
+        <div>
+          
+            <% if( typeof marca == 'undefined'){ %>
+              <h5 style="text-align: center;" ><%= message %></h5>
+            <% } else{ %>  
+             
+                <table class="table align-middle">
+                  <thead>
+                    <tr>                      
+                      <th scope="col">ID</th>
+                      <th scope="col">Descrição</th>
+                      <th scope="col" style="text-align: center;">Opções</th>                      
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% for(var marca of marca) { %>
+                    <tr>                      
+                      <td><%= marca.id_marca %></td>
+                      <td><%= marca.desc_marca %></td>
+                      <td style="text-align: center;">
+                          <a href="/marcas/deletemarca/<%= marca.id_marca %>"><button type="button" class="btn btn-danger btn-sm px-3">
+                            <i class="fas fa-times"></i>
+                          </button></a>                                                
+                      </td>                      
+                    </tr>   
+                    <% } %>                          
+                  </tbody>
+                  <tfoot id="foo">                            
+                    <tr>                  
+                        <th colspan="4" style="text-align:left"> </th> 
+                    </tr>
+                  </tfoot>
+                </table>
+               
+                  
+            <% } %>
+<!-- Modal para cadastro de empresas -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div style="background-color: #3f51b5; color: #fff" class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Cadastro de Marcas</h5>
+                      <button style="color: #fff" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/marcas/addmarca" method="POST">
+                            <div class="md-form">
+                              <input type="text" id="desc" name="desc" class="form-control" required>
+                              <label for="form1">Descrição</label>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                              <button type="submit" class="btn btn-dark-green">Salvar</button>
+                            </div>        
+                          </form>                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>    
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
+<script src="/public/js/jquery.mask.min.js"></script>
+
+
+</body>
+</html>
+
+<style>
+  
+    #card{
+        margin-bottom: 10px;
+    }
+    #titulo{
+        text-align: left; 
+        background-color:#3f51b5; 
+        padding: 15px;
+        color: white;
+    }
+   
+    @media screen and (max-width:480px) {
+        #cab{
+            height: 80px;
+            width: 50;
+            text-align: center;
+        }
+        #btn{
+            width: 100%;
+
+        }
+        #divimg{
+           text-align: center;
+        }
+    }
+</style>
+<script>
+  $(document).ready(function(){
+    $("#cnpj").mask("000.000.000-00")
+  })
+  
+
+  $(document).ready(function() {
+    // show the alert
+    setTimeout(function() {
+        $(".alert").alert('close');
+    }, 3000);
+});
+    $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('Cadastro de Marcas')
+  modal.find('.modal-body input').val(recipient)
+})
+</script>
